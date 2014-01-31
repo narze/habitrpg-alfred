@@ -14,12 +14,16 @@ require 'json'
 Alfred.with_friendly_error do |alfred|
   fb = alfred.feedback
 
+  file = File.new("user.txt", "r")
+  api_user = file.gets.chomp
+  api_key = file.gets.chomp
+
   uri = URI.parse("https://beta.habitrpg.com:443/api/v2/user")
   https = Net::HTTP.new(uri.host, uri.port)
   https.use_ssl = true
   req = Net::HTTP::Get.new(uri.path)
-  req['x-api-user'] = ""
-  req['x-api-key'] = ""
+  req['x-api-user'] = api_user
+  req['x-api-key'] = api_key
   res = https.request(req)
   user = JSON.parse(res.body)
   hp = user["stats"]["hp"]
