@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
@@ -7,6 +7,17 @@
 	<key>connections</key>
 	<dict>
 		<key>21557827-8003-42B7-A042-16D4C9278FEC</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>42D05639-3F0F-4760-8214-317167E4173D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>9A76EAD9-DE3B-4C7D-BFED-E394963124C5</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
@@ -42,6 +53,31 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Ruby Script</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>42D05639-3F0F-4760-8214-317167E4173D</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>argumenttype</key>
 				<integer>1</integer>
 				<key>escaping</key>
@@ -65,29 +101,8 @@
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>21557827-8003-42B7-A042-16D4C9278FEC</string>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<true/>
-				<key>output</key>
-				<integer>0</integer>
-				<key>removeextension</key>
-				<false/>
-				<key>sticky</key>
-				<false/>
-				<key>text</key>
-				<string>{query}</string>
-				<key>title</key>
-				<string>Ruby Script</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>42D05639-3F0F-4760-8214-317167E4173D</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -115,6 +130,35 @@
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>BA17BE41-176A-4E9A-B958-A3F0BEA36829</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>keyword</key>
+				<string>hb</string>
+				<key>script</key>
+				<string>/usr/bin/ruby ./hb.rb {query}</string>
+				<key>subtext</key>
+				<string>hb</string>
+				<key>title</key>
+				<string>hb</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>9A76EAD9-DE3B-4C7D-BFED-E394963124C5</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 	</array>
 	<key>readme</key>
@@ -124,17 +168,22 @@
 		<key>21557827-8003-42B7-A042-16D4C9278FEC</key>
 		<dict>
 			<key>ypos</key>
-			<real>250.0</real>
+			<real>250</real>
 		</dict>
 		<key>42D05639-3F0F-4760-8214-317167E4173D</key>
 		<dict>
 			<key>ypos</key>
-			<real>140.0</real>
+			<real>140</real>
+		</dict>
+		<key>9A76EAD9-DE3B-4C7D-BFED-E394963124C5</key>
+		<dict>
+			<key>ypos</key>
+			<real>490</real>
 		</dict>
 		<key>BA17BE41-176A-4E9A-B958-A3F0BEA36829</key>
 		<dict>
 			<key>ypos</key>
-			<real>370.0</real>
+			<real>370</real>
 		</dict>
 	</dict>
 	<key>webaddress</key>
