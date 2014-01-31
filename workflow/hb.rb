@@ -6,9 +6,24 @@
 require 'rubygems' unless defined? Gem # rubygems is only needed in 1.8
 require "bundle/bundler/setup"
 require "alfred"
+require 'uri'
+require 'net/http'
+require 'net/https'
+require 'json'
 
 Alfred.with_friendly_error do |alfred|
   fb = alfred.feedback
+
+  uri = URI.parse("https://beta.habitrpg.com:443/api/v2/user")
+  https = Net::HTTP.new(uri.host, uri.port)
+  https.use_ssl = true
+  req = Net::HTTP::Get.new(uri.path)
+  req['x-api-user'] = ""
+  req['x-api-key'] = ""
+  res = https.request(req)
+  user = JSON.parse(res.body)
+  hp = user["stats"]["hp"]
+  exp = user["stats"]["exp"]
 
   # add a file feedback
   fb.add_file_item(File.expand_path "~/Applications/")
@@ -16,9 +31,9 @@ Alfred.with_friendly_error do |alfred|
   # add an arbitrary feedback
   fb.add_item({
     :uid      => ""                     ,
-    :title    => "Just a Test"          ,
-    :subtitle => "feedback item"        ,
-    :arg      => "A test feedback Item" ,
+    :title    => "HP : #{hp} EXP : #{exp}"         ,
+    :subtitle => "HabitRPG"        ,
+    :arg      => "HP : #{hp} EXP : #{exp}" ,
     :valid    => "yes"                  ,
   })
 
