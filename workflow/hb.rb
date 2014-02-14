@@ -39,7 +39,7 @@ def add_user_status_feedback(fb)
   fb
 end
 
-def add_tasks_feedback(fb)
+def add_tasks_feedback(fb, query)
 
   file = File.new("user.txt", "r")
   api_user = file.gets.chomp
@@ -65,6 +65,21 @@ def add_tasks_feedback(fb)
     })
   end
 
+  # push matches to the top
+  matches = []
+
+  fb.items.reject! do |item|
+    if query
+      u = item.uid
+      if u[0...query.length].downcase == query.downcase
+        matches << item
+        true
+      end
+    end
+  end
+
+  fb.items = matches.concat fb.items
+
   fb
 end
 
@@ -89,31 +104,23 @@ Alfred.with_friendly_error do |alfred|
     ARGV.shift
   end
 
-  if !is_refresh and fb = alfred.feedback.get_cached_feedback
-    matches = []
-
-    fb.items.reject! do |item|
-      query = ARGV[0]
-      if query
-        u = item.uid
-        if u[0...query.length].downcase == query.downcase
-          matches << item
-          true
-        end
-      end
-    end
-
-    fb.items = matches.concat fb.items
-
-    puts fb.to_alfred
-  else
+  # if !is_refresh and fb = alfred.feedback.get_cached_feedback
+  #   puts fb.to_alfred
+  # else
     fb = alfred.feedback
 
-    fb = add_user_status_feedback(fb)
-    fb = add_tasks_feedback(fb)
+    args = ARGV[0] ? ARGV[0].split : []
 
-    fb.put_cached_feedback
+    case args.shift
+    when "tasks"
+      query = args.shift
+      fb = add_tasks_feedback(fb, query)
+    else
+      fb = add_user_status_feedback(fb)
+    end
+
+    # fb.put_cached_feedback
 
     puts fb.to_alfred
-  end
+  # end
 end
