@@ -56,11 +56,12 @@ def add_tasks_feedback(fb)
 
   tasks.each do |task|
     fb.add_item({
-      :uid      => ""                     ,
+      :uid      => "#{task["text"]}"                     ,
       :title    => "[#{task["type"]}] #{task["text"]}"         ,
       :subtitle => ""        ,
-      :arg      => "" ,
-      :valid    => "yes"                  ,
+      :arg      => "[#{task["type"]}] #{task["text"]}" ,
+      # :valid    => "yes"                  ,
+      :autocomplete => "[#{task["type"]}] #{task["text"]}"
     })
   end
 
@@ -89,6 +90,21 @@ Alfred.with_friendly_error do |alfred|
   end
 
   if !is_refresh and fb = alfred.feedback.get_cached_feedback
+    matches = []
+
+    fb.items.reject! do |item|
+      query = ARGV[0]
+      if query
+        u = item.uid
+        if u[0...query.length].downcase == query.downcase
+          matches << item
+          true
+        end
+      end
+    end
+
+    fb.items = matches.concat fb.items
+
     puts fb.to_alfred
   else
     fb = alfred.feedback
