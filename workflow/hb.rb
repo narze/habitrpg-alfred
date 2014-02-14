@@ -59,7 +59,7 @@ def add_tasks_feedback(fb, query)
       :uid      => "#{task["text"]}"                     ,
       :title    => "[#{task["type"]}] #{task["text"]}"         ,
       :subtitle => ""        ,
-      :arg      => "[#{task["type"]}] #{task["text"]}" ,
+      :arg      => "tasks/#{task["id"]}/up" ,
       # :valid    => "yes"                  ,
       :autocomplete => "[#{task["type"]}] #{task["text"]}"
     })
