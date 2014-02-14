@@ -12,51 +12,65 @@ require 'net/https'
 require 'json'
 
 Alfred.with_friendly_error do |alfred|
-  fb = alfred.feedback
 
-  file = File.new("user.txt", "r")
-  api_user = file.gets.chomp
-  api_key = file.gets.chomp
+  alfred.with_rescue_feedback = true
+  alfred.with_cached_feedback do
+    # expire in 1 hour
+    use_cache_file :expire => 3600
+    # or define your own cache file
+    # use_cache_file(
+    #   :file   => File.join(alfred.volatile_storage_path ,"this_workflow.alfred2feedback") ,
+    #   :expire => 3600
+    # )
 
-  uri = URI.parse("https://beta.habitrpg.com:443/api/v2/user")
-  https = Net::HTTP.new(uri.host, uri.port)
-  https.use_ssl = true
-  req = Net::HTTP::Get.new(uri.path)
-  req['x-api-user'] = api_user
-  req['x-api-key'] = api_key
-  res = https.request(req)
-  user = JSON.parse(res.body)
-  hp = user["stats"]["hp"]
-  exp = user["stats"]["exp"]
-
-  # add a file feedback
-  fb.add_file_item(File.expand_path "~/Applications/")
-
-  # add an arbitrary feedback
-  fb.add_item({
-    :uid      => ""                     ,
-    :title    => "HP : #{hp} EXP : #{exp}"         ,
-    :subtitle => "HabitRPG"        ,
-    :arg      => "HP : #{hp} EXP : #{exp}" ,
-    :valid    => "yes"                  ,
-  })
-
-  # add an feedback to test rescue feedback
-  fb.add_item({
-    :uid          => ""                     ,
-    :title        => "Rescue Feedback Test" ,
-    :subtitle     => "rescue feedback item" ,
-    :arg          => ""                     ,
-    :autocomplete => "failed"               ,
-    :valid        => "no"                   ,
-  })
-
-  if ARGV[0].eql? "failed"
-    alfred.with_rescue_feedback = true
-    raise Alfred::NoBundleIDError, "Wrong Bundle ID Test!"
   end
 
-  puts fb.to_xml(ARGV)
+  # prepend ! in query to refresh
+  is_refresh = false
+  if ARGV[0] == '!'
+    is_refresh = true
+    ARGV.shift
+  end
+
+  if !is_refresh and fb = alfred.feedback.get_cached_feedback
+    # cached feedback is valid
+    puts fb.to_alfred
+  else
+    fb = alfred.feedback
+
+    # ... generate_feedback as usually
+
+    fb = alfred.feedback
+
+    file = File.new("user.txt", "r")
+    api_user = file.gets.chomp
+    api_key = file.gets.chomp
+
+    uri = URI.parse("https://habitrpg.com:443/api/v2/user")
+    https = Net::HTTP.new(uri.host, uri.port)
+    https.use_ssl = true
+    req = Net::HTTP::Get.new(uri.path)
+    req['x-api-user'] = api_user
+    req['x-api-key'] = api_key
+    res = https.request(req)
+    user = JSON.parse(res.body)
+    hp = user["stats"]["hp"]
+    exp = user["stats"]["exp"]
+
+    # add an arbitrary feedback
+    fb.add_item({
+      :uid      => ""                     ,
+      :title    => "HP : #{hp} EXP : #{exp}"         ,
+      :subtitle => "HabitRPG"        ,
+      :arg      => "HP : #{hp} EXP : #{exp}" ,
+      :valid    => "yes"                  ,
+    })
+
+    # cache feedback
+    fb.put_cached_feedback
+
+    puts fb.to_xml(ARGV)
+  end
 end
 
 
