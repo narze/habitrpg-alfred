@@ -60,9 +60,9 @@ Alfred.with_friendly_error do |alfred|
     # add an arbitrary feedback
     fb.add_item({
       :uid      => ""                     ,
-      :title    => "HP : #{hp} EXP : #{exp}"         ,
+      :title    => "HP : #{hp.round} EXP : #{exp.round}"         ,
       :subtitle => "HabitRPG"        ,
-      :arg      => "HP : #{hp} EXP : #{exp}" ,
+      :arg      => "HP : #{hp.round} EXP : #{exp.round}" ,
       :valid    => "yes"                  ,
     })
 
