@@ -66,6 +66,7 @@ def add_tasks_feedback(fb)
 
   fb
 end
+
 Alfred.with_friendly_error do |alfred|
 
   alfred.with_rescue_feedback = true
@@ -88,16 +89,15 @@ Alfred.with_friendly_error do |alfred|
   end
 
   if !is_refresh and fb = alfred.feedback.get_cached_feedback
-    # cached feedback is valid
     puts fb.to_alfred
   else
     fb = alfred.feedback
 
     fb = add_user_status_feedback(fb)
     fb = add_tasks_feedback(fb)
-    # cache feedback
+
     fb.put_cached_feedback
 
-    puts fb.to_xml(ARGV)
+    puts fb.to_alfred
   end
 end
