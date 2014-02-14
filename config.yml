@@ -1,4 +1,4 @@
-# bundle_id = "domain.id"
+bundle_id = "net.narze.habitrpg-alfred"
 # path is the relative path to the workflow in the project root
 ---
 path: workflow
