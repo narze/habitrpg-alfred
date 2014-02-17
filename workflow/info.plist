@@ -6,6 +6,17 @@
 	<string>net.narze.habitrpg-alfred</string>
 	<key>connections</key>
 	<dict>
+		<key>0A50D567-5505-48EC-BCD2-0419F0832D3D</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>608046B6-4939-4171-8A9B-4F1BF7D5799D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
 		<key>0E9BFDBA-39EB-4549-828E-74F3EBF185E0</key>
 		<array>
 			<dict>
@@ -30,6 +41,17 @@
 		</array>
 		<key>399161A7-2DE1-4111-A563-57DE56FE0A08</key>
 		<array/>
+		<key>4B9A9156-B153-4BC9-B6DE-AC83137268B5</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>608046B6-4939-4171-8A9B-4F1BF7D5799D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
 		<key>608046B6-4939-4171-8A9B-4F1BF7D5799D</key>
 		<array>
 			<dict>
