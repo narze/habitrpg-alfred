@@ -6,7 +6,7 @@
 	<string>net.narze.habitrpg-alfred</string>
 	<key>connections</key>
 	<dict>
-		<key>21557827-8003-42B7-A042-16D4C9278FEC</key>
+		<key>0E9BFDBA-39EB-4549-828E-74F3EBF185E0</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
@@ -17,6 +17,19 @@
 				<string></string>
 			</dict>
 		</array>
+		<key>178767A1-7188-43D4-936C-18A99AD9E4EC</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>0E9BFDBA-39EB-4549-828E-74F3EBF185E0</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>399161A7-2DE1-4111-A563-57DE56FE0A08</key>
+		<array/>
 		<key>608046B6-4939-4171-8A9B-4F1BF7D5799D</key>
 		<array>
 			<dict>
@@ -44,17 +57,6 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>608046B6-4939-4171-8A9B-4F1BF7D5799D</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-			</dict>
-		</array>
-		<key>BA17BE41-176A-4E9A-B958-A3F0BEA36829</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>42D05639-3F0F-4760-8214-317167E4173D</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -100,91 +102,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>argumenttype</key>
-				<integer>0</integer>
-				<key>escaping</key>
-				<integer>62</integer>
-				<key>keyword</key>
-				<string>test feedback</string>
-				<key>runningsubtext</key>
-				<string>working...</string>
-				<key>script</key>
-				<string>/usr/bin/ruby ./main.rb {query}</string>
-				<key>subtext</key>
-				<string>Ruby Based Workflow Template</string>
-				<key>title</key>
-				<string>Test Alfred Feedback</string>
-				<key>type</key>
-				<integer>0</integer>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
-			<key>uid</key>
-			<string>21557827-8003-42B7-A042-16D4C9278FEC</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>escaping</key>
-				<integer>63</integer>
-				<key>keyword</key>
-				<string>test rescue feedback</string>
-				<key>runningsubtext</key>
-				<string>...</string>
-				<key>script</key>
-				<string>/usr/bin/ruby ./main_with_rescue_feedback.rb {query}</string>
-				<key>subtext</key>
-				<string>Ruby Based Workflow Template</string>
-				<key>title</key>
-				<string>Test Alfred Rescue Feedback</string>
-				<key>type</key>
-				<integer>0</integer>
-				<key>withspace</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
-			<key>uid</key>
-			<string>BA17BE41-176A-4E9A-B958-A3F0BEA36829</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>1</integer>
-				<key>escaping</key>
-				<integer>127</integer>
-				<key>keyword</key>
-				<string>hb</string>
-				<key>runningsubtext</key>
-				<string>Loading...</string>
-				<key>script</key>
-				<string>/usr/bin/ruby ./hb.rb {query}</string>
-				<key>title</key>
-				<string>HabitRPG</string>
-				<key>type</key>
-				<integer>0</integer>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
-			<key>uid</key>
-			<string>9A76EAD9-DE3B-4C7D-BFED-E394963124C5</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>escaping</key>
 				<integer>4</integer>
 				<key>script</key>
@@ -196,6 +113,33 @@
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
 			<string>608046B6-4939-4171-8A9B-4F1BF7D5799D</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>keyword</key>
+				<string>hb status</string>
+				<key>runningsubtext</key>
+				<string>Loading...</string>
+				<key>script</key>
+				<string>/usr/bin/ruby ./hb.rb status</string>
+				<key>title</key>
+				<string>HabitRPG Status</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>9A76EAD9-DE3B-4C7D-BFED-E394963124C5</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -248,15 +192,178 @@ fi</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>4</integer>
+				<key>script</key>
+				<string>/usr/bin/ruby ./habitrpg-api.rb {query}</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>0E9BFDBA-39EB-4549-828E-74F3EBF185E0</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>keyword</key>
+				<string>hb tasks</string>
+				<key>runningsubtext</key>
+				<string>Loading...</string>
+				<key>script</key>
+				<string>/usr/bin/ruby ./hb.rb tasks {query}</string>
+				<key>title</key>
+				<string>HabitRPG Tasks</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>178767A1-7188-43D4-936C-18A99AD9E4EC</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>keyword</key>
+				<string>hb create</string>
+				<key>script</key>
+				<string>/usr/bin/ruby ./hb.rb create {query}</string>
+				<key>title</key>
+				<string>Create task</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>669A246D-BBE6-492F-9B85-2EB829850B5D</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>keyword</key>
+				<string>hb remove</string>
+				<key>script</key>
+				<string>/usr/bin/ruby ./hb.rb remove {query}</string>
+				<key>title</key>
+				<string>Remove task</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>3130E9B5-134B-46D2-8E26-21D8423FD1A9</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>keyword</key>
+				<string>hb up</string>
+				<key>runningsubtext</key>
+				<string>Loading...</string>
+				<key>script</key>
+				<string>/usr/bin/ruby ./hb.rb up {query}</string>
+				<key>title</key>
+				<string>Up task</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>4B9A9156-B153-4BC9-B6DE-AC83137268B5</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>keyword</key>
+				<string>hb down</string>
+				<key>runningsubtext</key>
+				<string>Loading...</string>
+				<key>script</key>
+				<string>/usr/bin/ruby ./hb.rb down {query}</string>
+				<key>title</key>
+				<string>Down task</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>0A50D567-5505-48EC-BCD2-0419F0832D3D</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
 	<key>uidata</key>
 	<dict>
-		<key>21557827-8003-42B7-A042-16D4C9278FEC</key>
+		<key>0A50D567-5505-48EC-BCD2-0419F0832D3D</key>
 		<dict>
 			<key>ypos</key>
-			<real>250</real>
+			<real>1210</real>
+		</dict>
+		<key>0E9BFDBA-39EB-4549-828E-74F3EBF185E0</key>
+		<dict>
+			<key>ypos</key>
+			<real>730</real>
+		</dict>
+		<key>178767A1-7188-43D4-936C-18A99AD9E4EC</key>
+		<dict>
+			<key>ypos</key>
+			<real>730</real>
+		</dict>
+		<key>3130E9B5-134B-46D2-8E26-21D8423FD1A9</key>
+		<dict>
+			<key>ypos</key>
+			<real>970</real>
 		</dict>
 		<key>399161A7-2DE1-4111-A563-57DE56FE0A08</key>
 		<dict>
@@ -268,6 +375,11 @@ fi</string>
 			<key>ypos</key>
 			<real>140</real>
 		</dict>
+		<key>4B9A9156-B153-4BC9-B6DE-AC83137268B5</key>
+		<dict>
+			<key>ypos</key>
+			<real>1090</real>
+		</dict>
 		<key>608046B6-4939-4171-8A9B-4F1BF7D5799D</key>
 		<dict>
 			<key>ypos</key>
@@ -278,15 +390,15 @@ fi</string>
 			<key>ypos</key>
 			<real>610</real>
 		</dict>
+		<key>669A246D-BBE6-492F-9B85-2EB829850B5D</key>
+		<dict>
+			<key>ypos</key>
+			<real>850</real>
+		</dict>
 		<key>9A76EAD9-DE3B-4C7D-BFED-E394963124C5</key>
 		<dict>
 			<key>ypos</key>
 			<real>490</real>
-		</dict>
-		<key>BA17BE41-176A-4E9A-B958-A3F0BEA36829</key>
-		<dict>
-			<key>ypos</key>
-			<real>370</real>
 		</dict>
 	</dict>
 	<key>webaddress</key>

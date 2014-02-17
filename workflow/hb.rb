@@ -83,6 +83,14 @@ def add_tasks_feedback(fb, query)
   fb
 end
 
+def add_coming_soon_feedback(fb)
+  fb.add_item({
+    :title    => "Coming Soon",
+    :subtitle => "This workflow is under development"
+  })
+  fb
+end
+
 Alfred.with_friendly_error do |alfred|
 
   alfred.with_rescue_feedback = true
@@ -115,6 +123,16 @@ Alfred.with_friendly_error do |alfred|
     when "tasks"
       query = args.shift
       fb = add_tasks_feedback(fb, query)
+    when "status"
+      fb = add_user_status_feedback(fb)
+    when "create"
+      fb = add_coming_soon_feedback(fb)
+    when "remove"
+      fb = add_coming_soon_feedback(fb)
+    when "up"
+      fb = add_coming_soon_feedback(fb)
+    when "down"
+      fb = add_coming_soon_feedback(fb)
     else
       fb = add_user_status_feedback(fb)
     end
