@@ -29,7 +29,6 @@ def add_user_status_feedback(fb)
 
   # add an arbitrary feedback
   fb.add_item({
-    :uid      => ""                     ,
     :title    => "HP : #{hp.round} EXP : #{exp.round}"         ,
     :subtitle => "HabitRPG"        ,
     :arg      => "HP : #{hp.round} EXP : #{exp.round}" ,
@@ -39,7 +38,7 @@ def add_user_status_feedback(fb)
   fb
 end
 
-def add_tasks_feedback(fb, query)
+def add_tasks_feedback(fb)
 
   file = File.new("user.txt", "r")
   api_user = file.gets.chomp
@@ -56,29 +55,11 @@ def add_tasks_feedback(fb, query)
 
   tasks.each do |task|
     fb.add_item({
-      :uid      => "#{task["text"]}"                     ,
-      :title    => "[#{task["type"]}] #{task["text"]}"         ,
-      :subtitle => ""        ,
-      :arg      => "tasks/#{task["id"]}/up" ,
-      # :valid    => "yes"                  ,
-      :autocomplete => "[#{task["type"]}] #{task["text"]}"
+      :title    => "#{task["text"]}"         ,
+      :subtitle => "type : #{task["type"]}"        ,
+      :autocomplete => "#{task["text"]}"
     })
   end
-
-  # push matches to the top
-  matches = []
-
-  fb.items.reject! do |item|
-    if query
-      u = item.uid
-      if u[0...query.length].downcase == query.downcase
-        matches << item
-        true
-      end
-    end
-  end
-
-  fb.items = matches.concat fb.items
 
   fb
 end
@@ -100,29 +81,13 @@ def add_task_direction_feedback(direction, fb, query)
 
   tasks.each do |task|
     fb.add_item({
-      :uid      => "#{task["text"]}"                     ,
-      :title    => "#{direction.capitalize} : [#{task["type"]}] #{task["text"]}"         ,
-      :subtitle => ""        ,
+      :title    => "#{task["text"]}"         ,
+      :subtitle => "type : #{task["type"]}"        ,
       :arg      => "tasks/#{task["id"]}/#{direction}" ,
-      # :valid    => "yes"                  ,
-      :autocomplete => "[#{task["type"]}] #{task["text"]}"
+      :autocomplete => "#{task["text"]}",
+      :match? => :title_match?
     })
   end
-
-  # push matches to the top
-  matches = []
-
-  fb.items.reject! do |item|
-    if query
-      u = item.uid
-      if u[0...query.length].downcase == query.downcase
-        matches << item
-        true
-      end
-    end
-  end
-
-  fb.items = matches.concat fb.items
 
   fb
 end
@@ -161,12 +126,12 @@ Alfred.with_friendly_error do |alfred|
   # else
     fb = alfred.feedback
 
-    args = ARGV[0] ? ARGV[0].split : []
+    mode = ARGV[0]
+    query = ARGV[1]
 
-    case args.shift
+    case mode
     when "tasks"
-      query = args.shift
-      fb = add_tasks_feedback(fb, query)
+      fb = add_tasks_feedback(fb)
     when "status"
       fb = add_user_status_feedback(fb)
     when "create"
@@ -182,7 +147,10 @@ Alfred.with_friendly_error do |alfred|
     end
 
     # fb.put_cached_feedback
-
-    puts fb.to_alfred
+    if query.nil?
+      puts fb.to_alfred
+    else
+      puts fb.to_alfred query
+    end
   # end
 end

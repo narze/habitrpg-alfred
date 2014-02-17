@@ -17,28 +17,8 @@
 				<string></string>
 			</dict>
 		</array>
-		<key>0E9BFDBA-39EB-4549-828E-74F3EBF185E0</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>42D05639-3F0F-4760-8214-317167E4173D</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-			</dict>
-		</array>
 		<key>178767A1-7188-43D4-936C-18A99AD9E4EC</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>0E9BFDBA-39EB-4549-828E-74F3EBF185E0</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-			</dict>
-		</array>
+		<array/>
 		<key>399161A7-2DE1-4111-A563-57DE56FE0A08</key>
 		<array/>
 		<key>4B9A9156-B153-4BC9-B6DE-AC83137268B5</key>
@@ -96,31 +76,6 @@
 	<string>HabitRPG</string>
 	<key>objects</key>
 	<array>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<false/>
-				<key>output</key>
-				<integer>0</integer>
-				<key>removeextension</key>
-				<false/>
-				<key>sticky</key>
-				<false/>
-				<key>text</key>
-				<string>{query}</string>
-				<key>title</key>
-				<string>Ruby Script</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>42D05639-3F0F-4760-8214-317167E4173D</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -217,17 +172,25 @@ fi</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>escaping</key>
-				<integer>4</integer>
-				<key>script</key>
-				<string>/usr/bin/ruby ./habitrpg-api.rb {query}</string>
-				<key>type</key>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>output</key>
 				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Ruby Script</string>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.action.script</string>
+			<string>alfred.workflow.output.notification</string>
 			<key>uid</key>
-			<string>0E9BFDBA-39EB-4549-828E-74F3EBF185E0</string>
+			<string>42D05639-3F0F-4760-8214-317167E4173D</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -235,7 +198,7 @@ fi</string>
 			<key>config</key>
 			<dict>
 				<key>argumenttype</key>
-				<integer>0</integer>
+				<integer>2</integer>
 				<key>escaping</key>
 				<integer>127</integer>
 				<key>keyword</key>
@@ -243,13 +206,13 @@ fi</string>
 				<key>runningsubtext</key>
 				<string>Loading...</string>
 				<key>script</key>
-				<string>/usr/bin/ruby ./hb.rb tasks {query}</string>
+				<string>/usr/bin/ruby ./hb.rb tasks</string>
 				<key>title</key>
 				<string>HabitRPG Tasks</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
-				<true/>
+				<false/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.input.scriptfilter</string>
@@ -372,11 +335,6 @@ fi</string>
 			<key>ypos</key>
 			<real>1210</real>
 		</dict>
-		<key>0E9BFDBA-39EB-4549-828E-74F3EBF185E0</key>
-		<dict>
-			<key>ypos</key>
-			<real>730</real>
-		</dict>
 		<key>178767A1-7188-43D4-936C-18A99AD9E4EC</key>
 		<dict>
 			<key>ypos</key>
@@ -395,7 +353,7 @@ fi</string>
 		<key>42D05639-3F0F-4760-8214-317167E4173D</key>
 		<dict>
 			<key>ypos</key>
-			<real>140</real>
+			<real>620</real>
 		</dict>
 		<key>4B9A9156-B153-4BC9-B6DE-AC83137268B5</key>
 		<dict>
