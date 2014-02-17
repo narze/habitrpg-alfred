@@ -28,6 +28,17 @@
 				<string></string>
 			</dict>
 		</array>
+		<key>6569364C-B025-4E32-9588-E3076E744975</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>399161A7-2DE1-4111-A563-57DE56FE0A08</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
 		<key>9A76EAD9-DE3B-4C7D-BFED-E394963124C5</key>
 		<array>
 			<dict>
@@ -188,6 +199,55 @@
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string>if [ -f ./user.txt ];
+then
+   open ./user.txt
+else
+   cat &gt; ./user.txt &lt;&lt; EOF
+xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+
+# find your user id &amp; api token at https://habitrpg.com/#/options/settings/api
+# replace first line with your user id
+# replace second line with your api token
+EOF
+open ./user.txt
+fi</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>399161A7-2DE1-4111-A563-57DE56FE0A08</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>hb setup</string>
+				<key>text</key>
+				<string>Setup HabitRPG User</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>6569364C-B025-4E32-9588-E3076E744975</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
@@ -198,6 +258,11 @@
 			<key>ypos</key>
 			<real>250</real>
 		</dict>
+		<key>399161A7-2DE1-4111-A563-57DE56FE0A08</key>
+		<dict>
+			<key>ypos</key>
+			<real>610</real>
+		</dict>
 		<key>42D05639-3F0F-4760-8214-317167E4173D</key>
 		<dict>
 			<key>ypos</key>
@@ -207,6 +272,11 @@
 		<dict>
 			<key>ypos</key>
 			<real>490</real>
+		</dict>
+		<key>6569364C-B025-4E32-9588-E3076E744975</key>
+		<dict>
+			<key>ypos</key>
+			<real>610</real>
 		</dict>
 		<key>9A76EAD9-DE3B-4C7D-BFED-E394963124C5</key>
 		<dict>
