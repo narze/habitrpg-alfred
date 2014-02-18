@@ -21,6 +21,17 @@
 		<array/>
 		<key>399161A7-2DE1-4111-A563-57DE56FE0A08</key>
 		<array/>
+		<key>3DE23360-F2CF-4B13-BD5F-0165FA8EEF2A</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>088231BC-B685-48F7-B3D9-768A2CC237CC</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
 		<key>4B9A9156-B153-4BC9-B6DE-AC83137268B5</key>
 		<array>
 			<dict>
@@ -48,6 +59,17 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>399161A7-2DE1-4111-A563-57DE56FE0A08</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>92D79D44-EE0C-448F-ACC1-D93F5D89780E</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>E1B53206-10D4-4E47-B0BB-5CD5F8FFD21D</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -325,11 +347,88 @@ fi</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>plusspaces</key>
+				<false/>
+				<key>url</key>
+				<string>https://habitrpg.com</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>088231BC-B685-48F7-B3D9-768A2CC237CC</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>hb open</string>
+				<key>text</key>
+				<string>Open HabitRPG.com</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>3DE23360-F2CF-4B13-BD5F-0165FA8EEF2A</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>hb help</string>
+				<key>text</key>
+				<string>See help</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>92D79D44-EE0C-448F-ACC1-D93F5D89780E</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>plusspaces</key>
+				<false/>
+				<key>url</key>
+				<string>https://github.com/narze/habitrpg-alfred</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>E1B53206-10D4-4E47-B0BB-5CD5F8FFD21D</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
 	<key>uidata</key>
 	<dict>
+		<key>088231BC-B685-48F7-B3D9-768A2CC237CC</key>
+		<dict>
+			<key>ypos</key>
+			<real>1330</real>
+		</dict>
 		<key>0A50D567-5505-48EC-BCD2-0419F0832D3D</key>
 		<dict>
 			<key>ypos</key>
@@ -349,6 +448,11 @@ fi</string>
 		<dict>
 			<key>ypos</key>
 			<real>610</real>
+		</dict>
+		<key>3DE23360-F2CF-4B13-BD5F-0165FA8EEF2A</key>
+		<dict>
+			<key>ypos</key>
+			<real>1330</real>
 		</dict>
 		<key>42D05639-3F0F-4760-8214-317167E4173D</key>
 		<dict>
@@ -375,10 +479,20 @@ fi</string>
 			<key>ypos</key>
 			<real>850</real>
 		</dict>
+		<key>92D79D44-EE0C-448F-ACC1-D93F5D89780E</key>
+		<dict>
+			<key>ypos</key>
+			<real>1450</real>
+		</dict>
 		<key>9A76EAD9-DE3B-4C7D-BFED-E394963124C5</key>
 		<dict>
 			<key>ypos</key>
 			<real>490</real>
+		</dict>
+		<key>E1B53206-10D4-4E47-B0BB-5CD5F8FFD21D</key>
+		<dict>
+			<key>ypos</key>
+			<real>1450</real>
 		</dict>
 	</dict>
 	<key>webaddress</key>
