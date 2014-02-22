@@ -85,14 +85,15 @@ def add_remaining_dailies_feedback(fb)
 
   tasks.each do |task|
     if task["repeat"].to_a.reverse[Time.now.strftime("%u").to_i - 1].last
-      subtitle = "type : #{task["type"]}"
+      subtitle = "Enter to mark as done"
     else
-      subtitle = "type : #{task["type"]} [not required to do today]"
+      subtitle = "[not required to do today]"
     end
 
     fb.add_item({
       :title    => "#{task["text"]}",
       :subtitle => subtitle,
+      :arg      => "tasks/#{task["id"]}/up",
       :autocomplete => "#{task["text"]}"
     })
   end
