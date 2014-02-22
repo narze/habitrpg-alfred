@@ -87,6 +87,17 @@
 				<string></string>
 			</dict>
 		</array>
+		<key>AE3CC544-1039-427A-B22A-AEFA5B565871</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>608046B6-4939-4171-8A9B-4F1BF7D5799D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
 	</dict>
 	<key>createdby</key>
 	<string>narze</string>
@@ -98,6 +109,55 @@
 	<string>HabitRPG</string>
 	<key>objects</key>
 	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string>if [ -f ./user.txt ];
+then
+   open ./user.txt
+else
+   cat &gt; ./user.txt &lt;&lt; EOF
+xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+
+# find your user id &amp; api token at https://habitrpg.com/#/options/settings/api
+# replace first line with your user id
+# replace second line with your api token
+EOF
+open ./user.txt
+fi</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>399161A7-2DE1-4111-A563-57DE56FE0A08</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>hb setup</string>
+				<key>text</key>
+				<string>Setup HabitRPG User</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>6569364C-B025-4E32-9588-E3076E744975</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -145,49 +205,27 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>escaping</key>
-				<integer>0</integer>
-				<key>script</key>
-				<string>if [ -f ./user.txt ];
-then
-   open ./user.txt
-else
-   cat &gt; ./user.txt &lt;&lt; EOF
-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-
-# find your user id &amp; api token at https://habitrpg.com/#/options/settings/api
-# replace first line with your user id
-# replace second line with your api token
-EOF
-open ./user.txt
-fi</string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>399161A7-2DE1-4111-A563-57DE56FE0A08</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>argumenttype</key>
 				<integer>2</integer>
+				<key>escaping</key>
+				<integer>127</integer>
 				<key>keyword</key>
-				<string>hb setup</string>
-				<key>text</key>
-				<string>Setup HabitRPG User</string>
+				<string>hb dailies</string>
+				<key>runningsubtext</key>
+				<string>Loading...</string>
+				<key>script</key>
+				<string>/usr/bin/ruby ./hb.rb dailies</string>
+				<key>title</key>
+				<string>Show remaining dailies</string>
+				<key>type</key>
+				<integer>0</integer>
 				<key>withspace</key>
 				<false/>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
+			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
-			<string>6569364C-B025-4E32-9588-E3076E744975</string>
+			<string>AE3CC544-1039-427A-B22A-AEFA5B565871</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -447,7 +485,7 @@ fi</string>
 		<key>399161A7-2DE1-4111-A563-57DE56FE0A08</key>
 		<dict>
 			<key>ypos</key>
-			<real>610</real>
+			<real>230</real>
 		</dict>
 		<key>3DE23360-F2CF-4B13-BD5F-0165FA8EEF2A</key>
 		<dict>
@@ -472,7 +510,7 @@ fi</string>
 		<key>6569364C-B025-4E32-9588-E3076E744975</key>
 		<dict>
 			<key>ypos</key>
-			<real>610</real>
+			<real>230</real>
 		</dict>
 		<key>669A246D-BBE6-492F-9B85-2EB829850B5D</key>
 		<dict>
@@ -488,6 +526,11 @@ fi</string>
 		<dict>
 			<key>ypos</key>
 			<real>490</real>
+		</dict>
+		<key>AE3CC544-1039-427A-B22A-AEFA5B565871</key>
+		<dict>
+			<key>ypos</key>
+			<real>610</real>
 		</dict>
 		<key>E1B53206-10D4-4E47-B0BB-5CD5F8FFD21D</key>
 		<dict>

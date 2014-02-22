@@ -64,6 +64,42 @@ def add_tasks_feedback(fb)
   fb
 end
 
+def add_remaining_dailies_feedback(fb)
+
+  file = File.new("user.txt", "r")
+  api_user = file.gets.chomp
+  api_key = file.gets.chomp
+
+  uri = URI.parse("https://habitrpg.com:443/api/v2/user/tasks")
+  https = Net::HTTP.new(uri.host, uri.port)
+  https.use_ssl = true
+  req = Net::HTTP::Get.new(uri.path)
+  req['x-api-user'] = api_user
+  req['x-api-key'] = api_key
+  res = https.request(req)
+  tasks = JSON.parse(res.body)
+
+  tasks.select! do |task|
+    task["type"] == "daily" && !task["completed"]
+  end
+
+  tasks.each do |task|
+    if task["repeat"].to_a.reverse[Time.now.strftime("%u").to_i - 1].last
+      subtitle = "type : #{task["type"]}"
+    else
+      subtitle = "type : #{task["type"]} [not required to do today]"
+    end
+
+    fb.add_item({
+      :title    => "#{task["text"]}",
+      :subtitle => subtitle,
+      :autocomplete => "#{task["text"]}"
+    })
+  end
+
+  fb
+end
+
 def add_task_direction_feedback(direction, fb, query)
 
   file = File.new("user.txt", "r")
@@ -142,6 +178,8 @@ Alfred.with_friendly_error do |alfred|
       fb = add_task_direction_feedback("up", fb, query)
     when "down"
       fb = add_task_direction_feedback("down", fb, query)
+    when "dailies"
+      fb = add_remaining_dailies_feedback(fb)
     else
       fb = add_user_status_feedback(fb)
     end
