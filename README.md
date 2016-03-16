@@ -13,3 +13,9 @@ An alfred workflow for [HabitRPG]( https://habitrpg.com ). Made from @zhaocai's 
 * `hb tasks up <item>`
 * `hb get reward <item>`
 * and more!
+
+## TODO
+- [ ] Change name to Habitica
+- [ ] Improve performance by using cache
+- [ ] Easier authentication
+- [ ] "Rest in the inn" command
